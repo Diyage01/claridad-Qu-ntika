@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
 import { UserPlus, Eye, EyeOff } from 'lucide-react';
+import fondoLogin from '@/../../assets/claridad.png';
 
 const SignupPage = ({ onSignup }) => {
   const [name, setName] = useState('');
@@ -54,12 +55,20 @@ const SignupPage = ({ onSignup }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 gradient-bg">
+     <div 
+      className="min-h-screen flex items-center justify-center p-4 relative"
+      style={{
+        backgroundImage: "url('/../../assets/claridad.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/30 z-0"></div>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
+        className="w-full max-w-md z-10"
       >
         <Card className="glass-effect neon-glow">
           <CardHeader className="text-center">

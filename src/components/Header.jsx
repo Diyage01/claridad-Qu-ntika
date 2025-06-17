@@ -71,7 +71,7 @@ const Header = ({ user, onMenuToggle, isAuthenticated, userRole }) => {
                 </Avatar>
                 <div className="hidden md:block">
                   <p className="text-sm font-medium">{user?.name || 'Usuario'}</p>
-                  <p className="text-xs text-muted-foreground">{userRole === 'teacher' ? 'Profesor' : 'Estudiante'}</p>
+                  <p className="text-xs text-muted-foreground">{userRole === 'teacher' ? 'Profesor' : 'ideal'}</p>
                 </div>
               </div>
             </>
