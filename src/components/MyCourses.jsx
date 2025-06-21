@@ -60,13 +60,13 @@ const MyCourses = ({
         animate={{ opacity: 1, y: 0 }}
         className="space-y-4"
       >
-        <h1 className="text-3xl font-bold gradient-text">Mis Cursos</h1>
+        <h1 className="text-3xl font-bold gradient-text">Mis programas</h1>
         
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder="Buscar en mis cursos..."
+              placeholder="Buscar en mis programas..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -78,7 +78,7 @@ const MyCourses = ({
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-3 py-2 bg-background border border-input rounded-md text-sm"
+              className="px-3 py-2 bg-background border border-input rounded-md text-secondary-foreground"
             >
               {categories.map(category => (
                 <option key={category} value={category}>
@@ -95,13 +95,13 @@ const MyCourses = ({
           <TabsTrigger value="in-progress">En Progreso ({inProgressCourses.length})</TabsTrigger>
           <TabsTrigger value="completed">Completados ({completedCourses.length})</TabsTrigger>
           <TabsTrigger value="not-started">Sin Empezar ({notStartedCourses.length})</TabsTrigger>
-          <TabsTrigger value="available">Explorar Cursos ({filterCourses(availableCourses).length})</TabsTrigger>
+          <TabsTrigger value="available">Explorar programas ({filterCourses(availableCourses).length})</TabsTrigger>
         </TabsList>
 
         {[
-          { value: "in-progress", courses: inProgressCourses, emptyMsg: "No tienes cursos en progreso." },
-          { value: "completed", courses: completedCourses, emptyMsg: "Aún no has completado ningún curso." },
-          { value: "not-started", courses: notStartedCourses, emptyMsg: "Todos tus cursos inscritos están iniciados o completados." }
+          { value: "in-progress", courses: inProgressCourses, emptyMsg: "No tienes programas en progreso." },
+          { value: "completed", courses: completedCourses, emptyMsg: "Aún no has completado ningún programa." },
+          { value: "not-started", courses: notStartedCourses, emptyMsg: "Todos tus programas inscritos están iniciados o completados." }
         ].map(tab => (
           <TabsContent key={tab.value} value={tab.value} className="space-y-6 mt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -149,7 +149,7 @@ const MyCourses = ({
           </div>
           {filterCourses(availableCourses).length === 0 && (
             <div className="text-center py-12 text-muted-foreground">
-              <p>No hay más cursos disponibles que coincidan con tu búsqueda o ya estás inscrito en todos.</p>
+              <p>No hay más programas disponibles que coincidan con tu búsqueda o ya estás inscrito en todos.</p>
             </div>
           )}
         </TabsContent>

@@ -145,7 +145,7 @@ function App() {
           if (!isCompleted && progress === 100) {
             toast({
               title: "¡Felicitaciones!",
-              description: `Has completado el curso "${courseData.title}"`,
+              description: `Has completado el programa "${courseData.title}"`,
             });
           }
 

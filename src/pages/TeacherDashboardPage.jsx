@@ -18,7 +18,7 @@ const Modal = React.memo(({ isOpen, onClose, title, children, onSave }) => {
   if (!isOpen) return null;
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={onClose}>
-      <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="bg-card p-6 rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} className="bg-popover p-6 rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <CardHeader className="px-0 pt-0"><CardTitle>{title}</CardTitle></CardHeader>
         <CardContent className="px-0 pb-0 space-y-4">{children}</CardContent>
         <CardFooter className="px-0 pt-6 pb-0 flex justify-end">
@@ -124,10 +124,10 @@ const TeacherDashboardPage = () => {
 
     if (currentCourse) {
       setCourses(courses.map(c => c.id === currentCourse.id ? courseData : c));
-      toast({ title: "Curso Actualizado", description: `"${courseData.title}" ha sido actualizado.` });
+      toast({ title: "programa Actualizado", description: `"${courseData.title}" ha sido actualizado.` });
     } else {
       setCourses([...courses, courseData]);
-      toast({ title: "Curso Creado", description: `"${courseData.title}" ha sido creado.` });
+      toast({ title: "programa Creado", description: `"${courseData.title}" ha sido creado.` });
     }
     setIsCourseModalOpen(false);
   };
@@ -166,7 +166,7 @@ const TeacherDashboardPage = () => {
 
   const deleteCourse = (courseId) => {
     setCourses(courses.filter(c => c.id !== courseId));
-    toast({ title: "Curso Eliminado", description: "El curso ha sido eliminado." });
+    toast({ title: "programa Eliminado", description: "El programa ha sido eliminado." });
   };
 
   const deleteProduct = (productId) => {
@@ -180,19 +180,19 @@ const TeacherDashboardPage = () => {
     <div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <h1 className="text-3xl font-bold gradient-text">Panel de Profesor</h1>
-        <p className="text-muted-foreground">Gestiona cursos, productos y notificaciones.</p>
+        <p className="text-muted-foreground">Gestiona programas, productos y notificaciones.</p>
       </motion.div>
 
       <Tabs defaultValue="courses">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="courses"><BookOpen className="mr-2 h-4 w-4" />Cursos</TabsTrigger>
+          <TabsTrigger value="courses"><BookOpen className="mr-2 h-4 w-4" />programas</TabsTrigger>
           <TabsTrigger value="products"><Package className="mr-2 h-4 w-4" />Productos</TabsTrigger>
           <TabsTrigger value="notifications"><Bell className="mr-2 h-4 w-4" />Notificaciones</TabsTrigger>
         </TabsList>
 
         <TabsContent value="courses" className="space-y-4">
           <div className="flex justify-end">
-            <Button onClick={() => openCourseModal()}><PlusCircle className="mr-2 h-4 w-4" />Crear Curso</Button>
+            <Button onClick={() => openCourseModal()}><PlusCircle className="mr-2 h-4 w-4" />Crear programa</Button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map(course => (
@@ -208,7 +208,7 @@ const TeacherDashboardPage = () => {
                 <CardFooter className="mt-auto pt-4 border-t">
                   <Button variant="outline" size="sm" onClick={() => openCourseModal(course)} className="mr-2"><Edit className="mr-1 h-3 w-3" />Editar</Button>
                   <Button variant="destructive" size="sm" onClick={() => deleteCourse(course.id)} className="mr-2"><Trash2 className="mr-1 h-3 w-3" />Eliminar</Button>
-                  <Link to={`/course/${course.id}`} target="_blank">
+                  <Link to={`/course/${course.id}`} key={course.id}>
                     <Button variant="ghost" size="icon" title="Ver página pública"><LinkIcon className="h-4 w-4" /></Button>
                   </Link>
                 </CardFooter>
@@ -257,7 +257,7 @@ const TeacherDashboardPage = () => {
                   <h4 className="font-semibold">{notif.title}</h4>
                   <p className="text-sm text-muted-foreground">{notif.message}</p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Dirigido a: {notif.target === 'all_students' ? 'Todos los estudiantes' : `Estudiantes de ${courses.find(c=>c.id.toString() === notif.courseId)?.title || 'curso desconocido'}`} - {new Date(notif.createdAt).toLocaleString()}
+                    Dirigido a: {notif.target === 'all_students' ? 'Todos los estudiantes' : `Estudiantes de ${courses.find(c=>c.id.toString() === notif.courseId)?.title || 'programa desconocido'}`} - {new Date(notif.createdAt).toLocaleString()}
                   </p>
                 </div>
               ))}
@@ -269,7 +269,7 @@ const TeacherDashboardPage = () => {
       <Modal 
         isOpen={isCourseModalOpen} 
         onClose={() => setIsCourseModalOpen(false)} 
-        title={currentCourse ? "Editar Curso" : "Crear Curso"} 
+        title={currentCourse ? "Editar programa" : "Crear programa"} 
         onSave={saveCourse}
       >
         <div className="space-y-4">
@@ -334,15 +334,15 @@ const TeacherDashboardPage = () => {
               <SelectTrigger><SelectValue placeholder="Seleccionar audiencia" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all_students">Todos los estudiantes</SelectItem>
-                <SelectItem value="specific_course">Estudiantes de un curso específico</SelectItem>
+                <SelectItem value="specific_course">Estudiantes de un programa específico</SelectItem>
               </SelectContent>
             </Select>
           </div>
           {notificationForm.target === 'specific_course' && (
             <div>
-              <Label htmlFor="courseId">Curso Específico</Label>
+              <Label htmlFor="courseId">programa Específico</Label>
               <Select name="courseId" value={notificationForm.courseId} onValueChange={(value) => setNotificationForm(prev => ({ ...prev, courseId: value }))}>
-                <SelectTrigger><SelectValue placeholder="Seleccionar curso" /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder="Seleccionar programa" /></SelectTrigger>
                 <SelectContent>
                   {courses.map(course => (
                     <SelectItem key={course.id} value={course.id.toString()}>{course.title}</SelectItem>

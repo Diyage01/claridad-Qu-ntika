@@ -32,7 +32,7 @@ const Achievements = ({ enrolledCourses, coursesData }) => {
     {
       id: 2,
       title: "Estudiante Dedicado",
-      description: "Completa 3 cursos",
+      description: "Completa 3 programas",
       icon: BookOpen,
       progress: Math.min((completedCourses / 3) * 100, 100),
       maxProgress: 100,
@@ -54,7 +54,7 @@ const Achievements = ({ enrolledCourses, coursesData }) => {
     {
       id: 4,
       title: "Explorador",
-      description: "Inscríbete en cursos de 3 categorías diferentes",
+      description: "Inscríbete en programas de 3 categorías diferentes",
       icon: Star,
       progress: 0, // Simplified for demo
       maxProgress: 100,
@@ -65,7 +65,7 @@ const Achievements = ({ enrolledCourses, coursesData }) => {
     {
       id: 5,
       title: "Velocista",
-      description: "Completa un curso en menos de una semana",
+      description: "Completa un programas en menos de una semana",
       icon: Zap,
       progress: 0, // Simplified for demo
       maxProgress: 100,
@@ -76,7 +76,7 @@ const Achievements = ({ enrolledCourses, coursesData }) => {
     {
       id: 6,
       title: "Maestro",
-      description: "Completa 10 cursos",
+      description: "Completa 10 programas",
       icon: Award,
       progress: Math.min((completedCourses / 10) * 100, 100),
       maxProgress: 100,
@@ -99,7 +99,7 @@ const Achievements = ({ enrolledCourses, coursesData }) => {
       color: "text-yellow-500"
     },
     {
-      title: "Cursos Completados",
+      title: "programas Completados",
       value: completedCourses,
       icon: BookOpen,
       color: "text-green-500"

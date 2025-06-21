@@ -49,7 +49,7 @@ const ProductCard = ({ product, onAddToCart }) => {
             </div>
             <Button 
               onClick={() => onAddToCart(product)}
-              className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600"
+              className="bg-gradient-to-r from-purple-500 to-cian-500 hover:from-blue-600 hover:to-pink-600"
               size="sm"
             >
               <ShoppingCart className="h-4 w-4 mr-2" />

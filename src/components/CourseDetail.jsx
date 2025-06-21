@@ -42,8 +42,8 @@ const CourseDetail = ({ course, enrolledCourse, onBack, onToggleModule }) => {
   }, [course, enrolledCourse]);
 
 
-  if (!course) return <div className="text-center py-12">Cargando detalles del curso...</div>;
-  if (!enrolledCourse) return <div className="text-center py-12">No estás inscrito en este curso.</div>;
+  if (!course) return <div className="text-center py-12">Cargando detalles del programa...</div>;
+  if (!enrolledCourse) return <div className="text-center py-12">No estás inscrito en este programa.</div>;
 
   const completedModules = enrolledCourse.completedModules || [];
   const progress = enrolledCourse.progress || 0;
@@ -116,7 +116,7 @@ const CourseDetail = ({ course, enrolledCourse, onBack, onToggleModule }) => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <BookOpen className="h-5 w-5" />
-                <span>Módulos del Curso</span>
+                <span>Módulos del programas</span>
               </CardTitle>
               <div className="space-y-1 mt-2">
                 <div className="flex justify-between text-sm">

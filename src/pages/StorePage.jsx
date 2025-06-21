@@ -68,7 +68,7 @@ const StorePage = () => {
       >
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold gradient-text">Tienda de Productos</h1>
-          <Button onClick={() => setShowCart(true)} variant="outline" className="relative">
+          <Button onClick={() => setShowCart(true)} className="relative">
             <ShoppingCart className="h-5 w-5 mr-2" />
             Carrito
             {cart.length > 0 && (
@@ -95,7 +95,7 @@ const StorePage = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-3 py-2 bg-background border border-input rounded-md text-sm"
+              className="px-3 py-2 bg-background border border-input rounded-md text-secondary-foreground"
             >
               {categories.map(category => (
                 <option key={category} value={category}>

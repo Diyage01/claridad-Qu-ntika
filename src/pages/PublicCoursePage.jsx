@@ -21,7 +21,7 @@ const PublicCoursePage = () => {
   const course = courses.find(c => c.id.toString() === courseId);
 
   if (!course) {
-    return <div className="text-center py-12">Curso no encontrado.</div>;
+    return <div className="text-center py-12">programa no encontrado.</div>;
   }
 
   const isEnrolled = currentUser && enrolledCourses.some(ec => ec.courseId.toString() === courseId && ec.userId === currentUser.id);
@@ -34,7 +34,7 @@ const PublicCoursePage = () => {
       return;
     }
     if (currentUser.role === 'teacher') {
-       toast({ title: "Acción no permitida", description: "Los profesores no pueden inscribirse a cursos.", variant: "destructive" });
+       toast({ title: "Acción no permitida", description: "Los profesores no pueden inscribirse a programas.", variant: "destructive" });
        return;
     }
 
@@ -74,7 +74,7 @@ const PublicCoursePage = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-2 space-y-6">
           <Card className="glass-effect overflow-hidden">
-            <img  class="w-full h-72 object-cover" alt={`Banner del curso ${course.title}`} src="https://images.unsplash.com/photo-1677696795233-5ef097695f12" />
+            <img  class="w-full h-72 object-cover" alt={`Banner del programa ${course.title}`} src="https://images.unsplash.com/photo-1677696795233-5ef097695f12" />
             <CardHeader>
               <CardTitle className="text-3xl font-bold gradient-text">{course.title}</CardTitle>
               <div className="flex flex-wrap gap-2 mt-2">
@@ -90,7 +90,7 @@ const PublicCoursePage = () => {
 
           <Card className="glass-effect">
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2"><BookOpen className="h-6 w-6" /><span>Contenido del Curso</span></CardTitle>
+              <CardTitle className="flex items-center space-x-2"><BookOpen className="h-6 w-6" /><span>Contenido del programa</span></CardTitle>
               {course.hoursBetweenModules && <CardDescription>Las clases se desbloquean {course.hoursBetweenModules} horas después de completar la anterior.</CardDescription>}
             </CardHeader>
             <CardContent className="space-y-4">
@@ -148,7 +148,7 @@ const PublicCoursePage = () => {
                      appInstance.setActiveTab('courses');
                      appInstance.setSelectedCourse(course.id);
                     }}>
-                    <Button variant="link" className="mt-1">Ir a Mis Cursos</Button>
+                    <Button variant="link" className="mt-1">Ir a Mis programas</Button>
                   </Link>
                 </div>
               ) : (

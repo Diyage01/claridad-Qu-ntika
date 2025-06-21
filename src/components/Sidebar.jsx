@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, onClose, activeTab, setActiveTab, onLogout, isAuthent
 
   const studentMenuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home },
-    { id: 'courses', label: 'Mis Cursos', icon: BookOpen },
+    { id: 'courses', label: 'Mis programas', icon: BookOpen },
     { id: 'store', label: 'Tienda', icon: ShoppingBag },
     { id: 'achievements', label: 'Logros', icon: Trophy },
     { id: 'profile', label: 'Perfil', icon: User },
@@ -78,9 +78,9 @@ const Sidebar = ({ isOpen, onClose, activeTab, setActiveTab, onLogout, isAuthent
               <div className="flex items-center justify-between">
                 <Link to={userRole === 'teacher' ? "/teacher-dashboard" : "/"} className="flex items-center space-x-2" onClick={onClose}>
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">AC</span>
+                    <span className="text-white font-bold text-sm">CL</span>
                   </div>
-                  <span className="font-semibold gradient-text">Academia Cursos</span>
+                  <span className="font-semibold gradient-text">AClaridad</span>
                 </Link>
                 <Button variant="ghost" size="icon" onClick={onClose}>
                   <X className="h-4 w-4" />
@@ -94,7 +94,7 @@ const Sidebar = ({ isOpen, onClose, activeTab, setActiveTab, onLogout, isAuthent
                 return (
                   <motion.div key={item.id} whileHover={{ x: 4 }}>
                     <Button
-                      variant={activeTab === item.id ? "default" : "ghost"}
+                      variant={activeTab === item.id ? "default" : ""}
                       className="w-full justify-start space-x-3"
                       onClick={() => handleNavigation(item.id)}
                     >

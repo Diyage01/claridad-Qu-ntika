@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --background: 100% 100% 100%;
+    --foreground: 100 0% 100%;
+    --card:100% 100% 100%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 550 40% 40%;/*edit progrma*/
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 200 60% 40%;/*sidevar*/
     --primary-foreground: 222.2 84% 4.9%;
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --secondary-foreground: 210 40% 0%;
+    --muted: 200 60% 20%;/*busqueda*/
+    --muted-foreground: 0 0% 0%;/*texto programas*/
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
+    --border: 100% 100% 100%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.0%;
     --radius: 0.75rem;
@@ -43,20 +43,20 @@
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #143c42 0%, #791bf3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(90, 173, 186);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 135, 153, 0.678);
   }
   
   .neon-glow {
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 20px rgb(90, 173, 186);
   }
   
   .floating-animation {
@@ -73,7 +73,7 @@
   }
   
   @keyframes pulse-glow {
-    from { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+    from { box-shadow: 0 0 20px rgb(102, 126, 234); }
     to { box-shadow: 0 0 30px rgba(102, 126, 234, 0.8); }
   }
 }

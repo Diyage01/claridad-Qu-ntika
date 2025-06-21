@@ -16,7 +16,7 @@ const Header = ({ user, onMenuToggle, isAuthenticated, userRole }) => {
         <div className="flex items-center space-x-4">
           {isAuthenticated && (
             <Button
-              variant="ghost"
+              variant=""
               size="icon"
               onClick={onMenuToggle}
               className="md:hidden"
@@ -29,10 +29,10 @@ const Header = ({ user, onMenuToggle, isAuthenticated, userRole }) => {
               className="flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">AC</span>
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">CL</span>
               </div>
-              <span className="text-xl font-bold gradient-text">Academia Cursos</span>
+              <span className="text-xl font-bold gradient-text">Claridad</span>
             </motion.div>
           </Link>
         </div>
@@ -43,7 +43,7 @@ const Header = ({ user, onMenuToggle, isAuthenticated, userRole }) => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <input
                 type="text"
-                placeholder="Buscar cursos..."
+                placeholder="Buscar Programas..."
                 className="w-full pl-10 pr-4 py-2 bg-muted rounded-lg border-0 focus:ring-2 focus:ring-primary focus:outline-none"
               />
             </div>
@@ -54,10 +54,10 @@ const Header = ({ user, onMenuToggle, isAuthenticated, userRole }) => {
           {isAuthenticated ? (
             <>
               {userRole === 'student' && (
-                <Button variant="ghost" size="icon" className="relative">
+                <Button size="icon" className="relative">
                   <Bell className="h-5 w-5" />
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-                    3
+                    0
                   </span>
                 </Button>
               )}
@@ -65,13 +65,12 @@ const Header = ({ user, onMenuToggle, isAuthenticated, userRole }) => {
               <div className="flex items-center space-x-3">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src={user?.avatar} />
-                  <AvatarFallback className="bg-primary text-primary-foreground">
+                  <AvatarFallback className="bg-primary text-secondary-foreground">
                     {user?.name?.charAt(0).toUpperCase() || 'U'}
                   </AvatarFallback>
                 </Avatar>
                 <div className="hidden md:block">
-                  <p className="text-sm font-medium">{user?.name || 'Usuario'}</p>
-                  <p className="text-xs text-muted-foreground">{userRole === 'teacher' ? 'Profesor' : 'ideal'}</p>
+                  <p className="text-sm font-medium text-secondary-foreground">{user?.name || 'Usuario'}</p>
                 </div>
               </div>
             </>

@@ -21,7 +21,7 @@ const CourseCard = ({ course, isEnrolled, progress, onEnroll, onContinue }) => {
         <div className="relative">
           <img  
             className="w-full h-48 object-cover"
-            alt={`Imagen del curso ${course.title}`}
+            alt={`Imagen del programas ${course.title}`}
            src="https://images.unsplash.com/photo-1635251595512-dc52146d5ae8" />
           <div className="absolute top-4 left-4">
             <Badge variant="secondary" className="bg-black/50 text-white">

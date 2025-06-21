@@ -29,8 +29,8 @@ const Dashboard = ({ enrolledCourses, coursesData, currentUser }) => {
   }, 0);
 
   const stats = [
-    { title: "Cursos Inscritos", value: totalCourses, icon: BookOpen, color: "text-blue-500", bgColor: "bg-blue-500/10" },
-    { title: "Cursos Completados", value: completedCourses, icon: Trophy, color: "text-green-500", bgColor: "bg-green-500/10" },
+    { title: "programas Inscritos", value: totalCourses, icon: BookOpen, color: "text-blue-500", bgColor: "bg-blue-500/10" },
+    { title: "programas Completados", value: completedCourses, icon: Trophy, color: "text-green-500", bgColor: "bg-green-500/10" },
     { title: "En Progreso", value: inProgressCourses, icon: TrendingUp, color: "text-yellow-500", bgColor: "bg-yellow-500/10" },
     { title: "Horas Completadas", value: `${completedHours}h / ${totalHours}h`, icon: Clock, color: "text-purple-500", bgColor: "bg-purple-500/10" }
   ];
@@ -99,7 +99,7 @@ const Dashboard = ({ enrolledCourses, coursesData, currentUser }) => {
           <Card className="glass-effect h-full">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2"><Play className="h-5 w-5 text-primary" /><span>Continuar Aprendiendo</span></CardTitle>
-              <CardDescription>Tus cursos actualmente en progreso.</CardDescription>
+              <CardDescription>Tus programas actualmente en progreso.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {recentCourses.length > 0 ? (
@@ -124,8 +124,8 @@ const Dashboard = ({ enrolledCourses, coursesData, currentUser }) => {
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
                   <BookOpen className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p>No tienes cursos en progreso.</p>
-                  <p className="text-sm">¡Inscríbete en un curso para comenzar!</p>
+                  <p>No tienes programas en progreso.</p>
+                  <p className="text-sm">¡Inscríbete en un programa para comenzar!</p>
                 </div>
               )}
             </CardContent>
@@ -135,7 +135,7 @@ const Dashboard = ({ enrolledCourses, coursesData, currentUser }) => {
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
           <Card className="glass-effect h-full">
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2"><Zap className="h-5 w-5 text-primary" /><span>Cursos Sugeridos</span></CardTitle>
+              <CardTitle className="flex items-center space-x-2"><Zap className="h-5 w-5 text-primary" /><span>Programas Sugeridos</span></CardTitle>
               <CardDescription>Descubre nuevos temas basados en tus intereses.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
@@ -154,7 +154,7 @@ const Dashboard = ({ enrolledCourses, coursesData, currentUser }) => {
               ) : (
                  <div className="text-center py-6 text-muted-foreground">
                   <Zap className="h-10 w-10 mx-auto mb-3 opacity-40" />
-                  <p>Explora nuestros cursos para encontrar tu próxima aventura de aprendizaje.</p>
+                  <p>Explora nuestros programas para encontrar tu próxima aventura de aprendizaje.</p>
                  </div>
               )}
             </CardContent>
